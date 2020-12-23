@@ -1,0 +1,2857 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/23/2020 8:01:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-7IC6URP"
+  DTS:CreatorName="DESKTOP-7IC6URP\WIN 10"
+  DTS:DTSID="{21E06F78-6416-4F9C-A630-DA957D09C9BE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="ImportDW"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{E7BA9477-3BD0-4F33-9EC0-21F9D15E477D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BA2A9AA0-40DD-40ED-8366-A1DC671419E5}"
+      DTS:ObjectName="DESKTOP-7IC6URP.Bank">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-7IC6URP;Initial Catalog=Bank;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0D950EBD-65B2-4940-B05B-02D1448954EC}"
+      DTS:ObjectName="DESKTOP-7IC6URP.Banka DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-7IC6URP;Initial Catalog=Banka DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Build Fact promet"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9B3BE369-5FD6-4F01-8A14-70CE3C6B8329}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build Fact promet"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D950EBD-65B2-4940-B05B-02D1448954EC}"
+          SQLTask:SqlStatementSource="INSERT INTO posao VALUES (1,'Bankar'),(2,'Sekretarica'),(3,'Nezaposlen'),(4,'Nezaposlena'),(5,'Profesor'),(6,'CEO'),(7,'Penzioner'),(8,'Stručnjak za razvoj softvera'),(9,'Student'),(10,'Profesionalni kauboj');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Build Fact transakcije"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13F666ED-34B5-4310-BD56-014DB11970DC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build Fact transakcije"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D950EBD-65B2-4940-B05B-02D1448954EC}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO transakcije VALUES&#xA;                  (1, 2, 3, 4, 5, 6, 7);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Build Fact upotreba"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21F18452-2280-459D-86FA-56D8308D82DD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Build Fact upotreba"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D950EBD-65B2-4940-B05B-02D1448954EC}"
+          SQLTask:SqlStatementSource="INSERT INTO usluga VALUES (1,'Kredit'),(2,'Hipoteka'),(3,'Transfer novca'),(4,'Depozit'),(5,'Podizanje sa racuna'),(6,'Studentski kredit'),(7,'Listing stanja0'),(8,'Otvaranje racuna'),(9,'Zatvaranje racuna'),(10,'Orocena stednja');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import datum"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C70DF5B5-696F-45A1-8A50-E06EC3E1F76B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import datum"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import datum\Destination datum"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination datum"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[datum]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import datum\Destination datum.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[datum]"
+                      cachedDataType="dbDate"
+                      cachedName="datum"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[datum]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum]" />
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[dan_u_sedmici]"
+                      cachedDataType="i4"
+                      cachedName="dan_u_sedmici"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[dan_u_sedmici]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[dan_u_sedmici]" />
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[mjesec_broj]"
+                      cachedDataType="i4"
+                      cachedName="mjesec_broj"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[mjesec_broj]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_broj]" />
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[mjesec_ime]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="mjesec_ime"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[mjesec_ime]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_ime]" />
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[godina]"
+                      cachedDataType="i4"
+                      cachedName="godina"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[godina]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[godina]" />
+                    <inputColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].Columns[datum_id]"
+                      cachedDataType="i4"
+                      cachedName="datum_id"
+                      externalMetadataColumnId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[datum_bs_id]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[datum_id]"
+                      dataType="i4"
+                      name="datum_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[datum]"
+                      dataType="dbDate"
+                      name="datum" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[dan_u_sedmici]"
+                      dataType="i4"
+                      name="dan_u_sedmici" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[mjesec_broj]"
+                      dataType="i4"
+                      name="mjesec_broj" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[mjesec_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="mjesec_ime" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[godina]"
+                      dataType="i4"
+                      name="godina" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input].ExternalColumns[datum_bs_id]"
+                      dataType="i4"
+                      name="datum_bs_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import datum\Destination datum.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import datum\Destination datum.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Destination datum.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import datum\Destination datum.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Destination datum.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import datum\Source datum"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source datum"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[datum]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import datum\Source datum.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[datum_id]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum_id]"
+                      name="datum_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[datum]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[datum]"
+                      name="datum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[dan_u_sedmici]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[dan_u_sedmici]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[dan_u_sedmici]"
+                      name="dan_u_sedmici"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_broj]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[mjesec_broj]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_broj]"
+                      name="mjesec_broj"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[mjesec_ime]"
+                      length="100"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[mjesec_ime]"
+                      name="mjesec_ime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[godina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[godina]"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].Columns[godina]"
+                      name="godina"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[datum_id]"
+                      dataType="i4"
+                      name="datum_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[datum]"
+                      dataType="dbDate"
+                      name="datum" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[dan_u_sedmici]"
+                      dataType="i4"
+                      name="dan_u_sedmici" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[mjesec_broj]"
+                      dataType="i4"
+                      name="mjesec_broj" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[mjesec_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="mjesec_ime" />
+                    <externalMetadataColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Output].ExternalColumns[godina]"
+                      dataType="i4"
+                      name="godina" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[datum_id]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[datum_id]"
+                      name="datum_id" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[datum]"
+                      dataType="dbDate"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[datum]"
+                      name="datum" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[dan_u_sedmici]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[dan_u_sedmici]"
+                      name="dan_u_sedmici" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[mjesec_broj]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[mjesec_broj]"
+                      name="mjesec_broj" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[mjesec_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[mjesec_ime]"
+                      name="mjesec_ime" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[godina]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[godina]"
+                      name="godina" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import datum\Source datum.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import datum.Paths[OLE DB Source Output]"
+              endId="Package\Import datum\Destination datum.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import datum\Source datum.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import korisnik"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BC621474-7725-42B7-96B5-F3B3001FD815}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import korisnik"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import korisnik\Destination korisnik"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination korisnik"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[korisnik]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import korisnik\Destination korisnik.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].Columns[korisnik_id]"
+                      cachedDataType="i4"
+                      cachedName="korisnik_id"
+                      externalMetadataColumnId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_id]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_id]" />
+                    <inputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].Columns[posao_id]"
+                      cachedDataType="i4"
+                      cachedName="posao_id"
+                      externalMetadataColumnId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[posao_id]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[posao_id]" />
+                    <inputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].Columns[korisnik_ime]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="korisnik_ime"
+                      externalMetadataColumnId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_ime]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_ime]" />
+                    <inputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].Columns[korisnik_prezime]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="korisnik_prezime"
+                      externalMetadataColumnId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_prezime]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_prezime]" />
+                    <inputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].Columns[korisnik_adresa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="korisnik_adresa"
+                      externalMetadataColumnId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_adresa]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_adresa]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_id]"
+                      dataType="i4"
+                      name="korisnik_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[posao_id]"
+                      dataType="i4"
+                      name="posao_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_ime" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_prezime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_prezime" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_adresa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_adresa" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import korisnik\Destination korisnik.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Destination korisnik.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Destination korisnik.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Destination korisnik.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import korisnik\Source korisnik"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source korisnik"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[korisnik]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import korisnik\Source korisnik.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_id]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_id]"
+                      name="korisnik_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[posao_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[posao_id]"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[posao_id]"
+                      name="posao_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_ime]"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_ime]"
+                      name="korisnik_ime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_prezime]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_prezime]"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_prezime]"
+                      name="korisnik_prezime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_adresa]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_adresa]"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].Columns[korisnik_adresa]"
+                      name="korisnik_adresa"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_id]"
+                      dataType="i4"
+                      name="korisnik_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[posao_id]"
+                      dataType="i4"
+                      name="posao_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_ime" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_prezime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_prezime" />
+                    <externalMetadataColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output].ExternalColumns[korisnik_adresa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="korisnik_adresa" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_id]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_id]"
+                      name="korisnik_id" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[posao_id]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[posao_id]"
+                      name="posao_id" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_ime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_ime]"
+                      name="korisnik_ime" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_prezime]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_prezime]"
+                      name="korisnik_prezime" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_adresa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[korisnik_adresa]"
+                      name="korisnik_adresa" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import korisnik.Paths[OLE DB Source Output]"
+              endId="Package\Import korisnik\Destination korisnik.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import korisnik\Source korisnik.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import lokacije"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{54C9AD4D-069C-4651-8609-3B1BD7D7EE78}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import lokacije"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import lokacije\Destination lokacije"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination lokacije"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[lokacije]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import lokacije\Destination lokacije.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].Columns[lokacija_id]"
+                      cachedDataType="i4"
+                      cachedName="lokacija_id"
+                      externalMetadataColumnId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].ExternalColumns[lokacija_id]"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_id]" />
+                    <inputColumn
+                      refId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].Columns[lokacija_naziv]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lokacija_naziv"
+                      externalMetadataColumnId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].ExternalColumns[lokacija_naziv]"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_naziv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].ExternalColumns[lokacija_id]"
+                      dataType="i4"
+                      name="lokacija_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input].ExternalColumns[lokacija_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="lokacija_naziv" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import lokacije\Destination lokacije.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import lokacije\Destination lokacije.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import lokacije\Destination lokacije.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import lokacije\Destination lokacije.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import lokacije\Destination lokacije.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import lokacije\Source lokacije"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source lokacije"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[lokacije]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import lokacije\Source lokacije.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].ExternalColumns[lokacija_id]"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_id]"
+                      name="lokacija_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].ExternalColumns[lokacija_naziv]"
+                      length="100"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].Columns[lokacija_naziv]"
+                      name="lokacija_naziv"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].ExternalColumns[lokacija_id]"
+                      dataType="i4"
+                      name="lokacija_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output].ExternalColumns[lokacija_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="lokacija_naziv" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[lokacija_id]"
+                      dataType="i4"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[lokacija_id]"
+                      name="lokacija_id" />
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[lokacija_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[lokacija_naziv]"
+                      name="lokacija_naziv" />
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import lokacije.Paths[OLE DB Source Output]"
+              endId="Package\Import lokacije\Destination lokacije.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import lokacije\Source lokacije.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import posao"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EF37B69C-1FAA-48BC-9154-9C8719A70EF4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import posao"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import posao\Destination posao"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination posao"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[posao]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import posao\Destination posao.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].Columns[posao_id]"
+                      cachedDataType="i4"
+                      cachedName="posao_id"
+                      externalMetadataColumnId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].ExternalColumns[posao_id]"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_id]" />
+                    <inputColumn
+                      refId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].Columns[posao_naziv]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="posao_naziv"
+                      externalMetadataColumnId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].ExternalColumns[posao_naziv]"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_naziv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].ExternalColumns[posao_id]"
+                      dataType="i4"
+                      name="posao_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input].ExternalColumns[posao_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="posao_naziv" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import posao\Destination posao.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import posao\Destination posao.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import posao\Destination posao.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import posao\Destination posao.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import posao\Destination posao.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import posao\Source posao"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source posao"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[posao]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import posao\Source posao.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import posao\Source posao.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].ExternalColumns[posao_id]"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_id]"
+                      name="posao_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].ExternalColumns[posao_naziv]"
+                      length="100"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].Columns[posao_naziv]"
+                      name="posao_naziv"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].ExternalColumns[posao_id]"
+                      dataType="i4"
+                      name="posao_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Output].ExternalColumns[posao_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="posao_naziv" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[posao_id]"
+                      dataType="i4"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[posao_id]"
+                      name="posao_id" />
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[posao_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[posao_naziv]"
+                      name="posao_naziv" />
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import posao\Source posao.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import posao.Paths[OLE DB Source Output]"
+              endId="Package\Import posao\Destination posao.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import posao\Source posao.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import racun"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{01EEAE40-0441-4AE7-83A6-B2B82CDA131A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import racun"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import racun\Destination racun"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination racun"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[racun]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import racun\Destination racun.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[racun_id]"
+                      cachedDataType="i4"
+                      cachedName="racun_id"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[racun_id]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[racun_id]" />
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[korisnik_id]"
+                      cachedDataType="i4"
+                      cachedName="korisnik_id"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_id]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[korisnik_id]" />
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[naziv]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="naziv"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[naziv]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[naziv]" />
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[datum_otvaranja]"
+                      cachedDataType="dbDate"
+                      cachedName="datum_otvaranja"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[datum_otvaranja]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_otvaranja]" />
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[datum_zatvaranja]"
+                      cachedDataType="dbDate"
+                      cachedName="datum_zatvaranja"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[datum_zatvaranja]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_zatvaranja]" />
+                    <inputColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].Columns[stanje]"
+                      cachedDataType="i4"
+                      cachedName="stanje"
+                      externalMetadataColumnId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[stanje]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[stanje]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[racun_id]"
+                      dataType="i4"
+                      name="racun_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[korisnik_id]"
+                      dataType="i4"
+                      name="korisnik_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[datum_otvaranja]"
+                      dataType="dbDate"
+                      name="datum_otvaranja" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[datum_zatvaranja]"
+                      dataType="dbDate"
+                      name="datum_zatvaranja" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input].ExternalColumns[stanje]"
+                      dataType="i4"
+                      name="stanje" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import racun\Destination racun.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import racun\Destination racun.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Destination racun.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import racun\Destination racun.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Destination racun.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import racun\Source racun"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source racun"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[racun]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import racun\Source racun.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[racun_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[racun_id]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[racun_id]"
+                      name="racun_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[korisnik_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[korisnik_id]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[korisnik_id]"
+                      name="korisnik_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[naziv]"
+                      length="50"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[naziv]"
+                      name="naziv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_otvaranja]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[datum_otvaranja]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_otvaranja]"
+                      name="datum_otvaranja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_zatvaranja]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[datum_zatvaranja]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[datum_zatvaranja]"
+                      name="datum_zatvaranja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[stanje]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[stanje]"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].Columns[stanje]"
+                      name="stanje"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[racun_id]"
+                      dataType="i4"
+                      name="racun_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[korisnik_id]"
+                      dataType="i4"
+                      name="korisnik_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="naziv" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[datum_otvaranja]"
+                      dataType="dbDate"
+                      name="datum_otvaranja" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[datum_zatvaranja]"
+                      dataType="dbDate"
+                      name="datum_zatvaranja" />
+                    <externalMetadataColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Output].ExternalColumns[stanje]"
+                      dataType="i4"
+                      name="stanje" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[racun_id]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[racun_id]"
+                      name="racun_id" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[korisnik_id]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[korisnik_id]"
+                      name="korisnik_id" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[naziv]"
+                      name="naziv" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[datum_otvaranja]"
+                      dataType="dbDate"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[datum_otvaranja]"
+                      name="datum_otvaranja" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[datum_zatvaranja]"
+                      dataType="dbDate"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[datum_zatvaranja]"
+                      name="datum_zatvaranja" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[stanje]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[stanje]"
+                      name="stanje" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import racun\Source racun.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import racun.Paths[OLE DB Source Output]"
+              endId="Package\Import racun\Destination racun.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import racun\Source racun.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import usluga"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{75EE5BA3-B36F-45E6-A636-591B51499C6E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import usluga"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import usluga\Destination usluga"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination usluga"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[usluga]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import usluga\Destination usluga.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Banka DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].Columns[usluga_id]"
+                      cachedDataType="i4"
+                      cachedName="usluga_id"
+                      externalMetadataColumnId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].ExternalColumns[usluga_id]"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_id]" />
+                    <inputColumn
+                      refId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].Columns[usluga_naziv]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="usluga_naziv"
+                      externalMetadataColumnId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].ExternalColumns[usluga_naziv]"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_naziv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].ExternalColumns[usluga_id]"
+                      dataType="i4"
+                      name="usluga_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input].ExternalColumns[usluga_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="usluga_naziv" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import usluga\Destination usluga.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import usluga\Destination usluga.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import usluga\Destination usluga.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import usluga\Destination usluga.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import usluga\Destination usluga.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import usluga\Source usluga"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source usluga"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[usluga]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import usluga\Source usluga.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-7IC6URP.Bank]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].ExternalColumns[usluga_id]"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_id]"
+                      name="usluga_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].ExternalColumns[usluga_naziv]"
+                      length="100"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].Columns[usluga_naziv]"
+                      name="usluga_naziv"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].ExternalColumns[usluga_id]"
+                      dataType="i4"
+                      name="usluga_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output].ExternalColumns[usluga_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="usluga_naziv" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[usluga_id]"
+                      dataType="i4"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[usluga_id]"
+                      name="usluga_id" />
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[usluga_naziv]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[usluga_naziv]"
+                      name="usluga_naziv" />
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import usluga.Paths[OLE DB Source Output]"
+              endId="Package\Import usluga\Destination usluga.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import usluga\Source usluga.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F3099FB-8416-4B2D-8C22-F7A9272A6EED}"
+      DTS:From="Package\Import datum"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import korisnik" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{98965274-C792-4444-B700-627AEC2818D2}"
+      DTS:From="Package\Import korisnik"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Import lokacije" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{574A628F-A762-42D7-B356-13B809349D24}"
+      DTS:From="Package\Import lokacije"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Import posao" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC7BFBF5-8096-4829-B6B3-66350D2190F8}"
+      DTS:From="Package\Import posao"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Import usluga" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0C3B3F7-7E5D-4A82-A809-E3E27C478E44}"
+      DTS:From="Package\Import usluga"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Import racun" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{A976E0D1-D4D8-4AC5-BF74-D82B003303F9}"
+      DTS:From="Package\Import racun"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Build Fact transakcije" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{309F3E73-53B2-4408-AD31-E9D3E916328D}"
+      DTS:From="Package\Build Fact transakcije"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Build Fact promet" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{44DB687A-695A-44EF-8EBE-5F21A73CB047}"
+      DTS:From="Package\Build Fact promet"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Build Fact upotreba" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import datum"
+          TopLeft="70.7142869185429,41.2941182261932" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Import korisnik"
+          TopLeft="73.5714298243426,125.411766464735" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="145.542858371443,82.8941182261932">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5176482385418"
+              Start="0,0"
+              End="0,35.0176482385418">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0176482385418" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Import lokacije"
+          TopLeft="79.285715635942,217.941179527131" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="151.028572730142,167.011766464735">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.929413062396"
+              Start="0,0"
+              End="0,43.429413062396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.429413062396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Import posao"
+          TopLeft="306.428576647019,183.529414338637" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="228.085715635942,238.741179527131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.3428610110771,-34.4117651884944"
+              Start="0,0"
+              End="70.8428610110771,-34.4117651884944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.1714305055385,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.1714305055385,0"
+                    Point2="39.1714305055385,0"
+                    Point3="39.1714305055385,-4" />
+                  <mssgle:LineSegment
+                    End="39.1714305055385,-30.4117651884944" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.1714305055385,-30.4117651884944"
+                    Point2="39.1714305055385,-34.4117651884944"
+                    Point3="43.1714305055385,-34.4117651884944" />
+                  <mssgle:LineSegment
+                    End="70.8428610110771,-34.4117651884944" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import usluga"
+          TopLeft="300.71429083542,98.6470602070171" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="374.971433741219,183.529414338637">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-43.2823541316194"
+              Start="0,0"
+              End="0,-35.7823541316194">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-35.7823541316194" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Import racun"
+          TopLeft="512.857151591048,41.2941182261932" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="444.71429083542,119.447060207017">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.1428607556285,-57.3529419808239"
+              Start="0,0"
+              End="60.6428607556285,-57.3529419808239">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.0714303778142,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.0714303778142,0"
+                    Point2="34.0714303778142,0"
+                    Point3="34.0714303778142,-4" />
+                  <mssgle:LineSegment
+                    End="34.0714303778142,-53.3529419808239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.0714303778142,-53.3529419808239"
+                    Point2="34.0714303778142,-57.3529419808239"
+                    Point3="38.0714303778142,-57.3529419808239" />
+                  <mssgle:LineSegment
+                    End="60.6428607556285,-57.3529419808239" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Build Fact transakcije"
+          TopLeft="517.857151676198,146.058825577832" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="582.857151591048,82.8941182261933">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.2000000851494,63.1647073516384"
+              Start="0,0"
+              End="24.2000000851494,55.6647073516384">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5823536758192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5823536758192"
+                    Point2="0,31.5823536758192"
+                    Point3="4,31.5823536758192" />
+                  <mssgle:LineSegment
+                    End="20.2000000851494,31.5823536758192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.2000000851494,31.5823536758192"
+                    Point2="24.2000000851494,31.5823536758192"
+                    Point3="24.2000000851494,35.5823536758192" />
+                  <mssgle:LineSegment
+                    End="24.2000000851494,55.6647073516384" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Build Fact promet"
+          TopLeft="522.857151761347,240.117650426383" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="605.357151718772,187.658825577832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.4588248485512"
+              Start="0,0"
+              End="0,44.9588248485512">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.9588248485512" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Build Fact upotreba"
+          TopLeft="362.857149036563,306.647063124139" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="603.657151761347,281.717650426383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-156.000002724784,24.9294126977558"
+              Start="0,0"
+              End="-156.000002724784,17.4294126977558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.46470634887788" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.46470634887788"
+                    Point2="0,12.4647063488779"
+                    Point3="-4,12.4647063488779" />
+                  <mssgle:LineSegment
+                    End="-152.000002724784,12.4647063488779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-152.000002724784,12.4647063488779"
+                    Point2="-156.000002724784,12.4647063488779"
+                    Point3="-156.000002724784,16.4647063488779" />
+                  <mssgle:LineSegment
+                    End="-156.000002724784,17.4294126977558" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import datum">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import datum\Source datum"
+          TopLeft="84.2857157210915,45.1176476915815" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Import datum\Destination datum"
+          TopLeft="75.0000012772424,125.411766464735" />
+        <EdgeLayout
+          Id="Package\Import datum.Paths[OLE DB Source Output]"
+          TopLeft="156.842858499167,86.7176476915815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.6941187731535"
+              Start="0,0"
+              End="0,31.1941187731535">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1941187731535" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import datum\Source datum">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import datum\Destination datum">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import korisnik">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Import korisnik\Source korisnik"
+          TopLeft="239,100" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Import korisnik\Destination korisnik"
+          TopLeft="234,218" />
+        <EdgeLayout
+          Id="Package\Import korisnik.Paths[OLE DB Source Output]"
+          TopLeft="316.5,141.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.4"
+              Start="0,0"
+              End="0,68.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import korisnik\Source korisnik">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import korisnik\Destination korisnik">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import lokacije">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Import lokacije\Source lokacije"
+          TopLeft="306,67" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Import lokacije\Destination lokacije"
+          TopLeft="298,161" />
+        <EdgeLayout
+          Id="Package\Import lokacije.Paths[OLE DB Source Output]"
+          TopLeft="381.6,108.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.4"
+              Start="0,0"
+              End="0,44.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import lokacije\Source lokacije">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import lokacije\Destination lokacije">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import posao">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Import posao\Source posao"
+          TopLeft="341,67" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Import posao\Destination posao"
+          TopLeft="331,159" />
+        <EdgeLayout
+          Id="Package\Import posao.Paths[OLE DB Source Output]"
+          TopLeft="412,108.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.4"
+              Start="0,0"
+              End="0,42.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import posao\Source posao">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import posao\Destination posao">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import usluga">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import usluga\Source usluga"
+          TopLeft="394,92" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Import usluga\Destination usluga"
+          TopLeft="380,176" />
+        <EdgeLayout
+          Id="Package\Import usluga.Paths[OLE DB Source Output]"
+          TopLeft="464.4,133.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.4"
+              Start="0,0"
+              End="0,34.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import usluga\Source usluga">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import usluga\Destination usluga">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import racun">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Import racun\Source racun"
+          TopLeft="390,93" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Import racun\Destination racun"
+          TopLeft="388,177" />
+        <EdgeLayout
+          Id="Package\Import racun.Paths[OLE DB Source Output]"
+          TopLeft="460,134.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.40000000000009,42.4"
+              Start="0,0"
+              End="8.40000000000009,34.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2"
+                    Point2="0,21.2"
+                    Point3="4,21.2" />
+                  <mssgle:LineSegment
+                    End="4.40000000000009,21.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.40000000000009,21.2"
+                    Point2="8.40000000000009,21.2"
+                    Point3="8.40000000000009,25.2" />
+                  <mssgle:LineSegment
+                    End="8.40000000000009,34.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import racun\Source racun">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import racun\Destination racun">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
