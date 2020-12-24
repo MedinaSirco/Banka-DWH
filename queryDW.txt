@@ -1,0 +1,97 @@
+--broj transakcija po osobi
+SELECT 
+	r.racun_id,
+	k.korisnik_id, 
+	k.korisnik_ime, 
+	k.korisnik_prezime, 
+	COUNT(r.racun_id) AS broj_transakcija
+FROM transakcije AS t
+	JOIN racun AS r ON r.racun_id = t.racun_id
+	JOIN korisnik AS k ON k.korisnik_id  = r.korisnik_id
+GROUP BY r.racun_id, k.korisnik_id, k.korisnik_ime, k.korisnik_prezime
+ORDER BY COUNT(t.transakcija_id) DESC
+
+
+--ukupna kolicina izvrsenih usluga
+SELECT 
+	u.usluga_id, u.usluga_naziv, 
+	SUM(t.kolicina) AS ukupna_kolicina_izvrsenih_usluga
+FROM transakcije AS t
+	JOIN usluga AS u ON u.usluga_id  = t.usluga_id
+GROUP BY u.usluga_id, u.usluga_naziv
+
+
+--broj transkacija u mjesecu
+SELECT d.mjesec_broj, d.mjesec_ime, COUNT(t.transakcija_id) AS broj_transakcija_u_mjesecu
+FROM transakcije AS t
+	JOIN datum AS d ON d.datum_id = t.datum_id
+GROUP BY d.mjesec_broj, d.mjesec_ime
+ORDER BY d.mjesec_broj
+
+
+--broj transakcija po lokaciji
+SELECT 
+	l.lokacija_id, 
+	l.lokacija_naziv, 
+	COUNT(t.transakcija_id) AS broj_transakcija_po_lokaciji
+FROM transakcije AS t
+	JOIN lokacije AS l ON l.lokacija_id = t.lokacija_id
+GROUP BY l.lokacija_id, l.lokacija_naziv
+ORDER BY COUNT(t.transakcija_id) DESC
+
+
+
+--usluge po korisniku
+SELECT 
+	k.korisnik_id, 
+	k.korisnik_ime, 
+	k.korisnik_prezime, 
+	u.usluga_id, 
+	u.usluga_naziv, 
+	SUM(t.kolicina) AS ukupna_kolicina_usluga_po_korisniku
+FROM transakcije AS t
+	JOIN racun AS r ON r.racun_id = t.racun_id
+	JOIN korisnik AS k ON k.korisnik_id  = r.korisnik_id
+	JOIN usluga AS u ON u.usluga_id = t.usluga_id
+GROUP BY  k.korisnik_id, k.korisnik_ime, k.korisnik_prezime, u.usluga_id, u.usluga_naziv
+ORDER BY k.korisnik_id, ukupna_kolicina_usluga_po_korisniku DESC
+
+
+
+--broj transakcija po lokaciji
+SELECT 
+	l.lokacija_id, 
+	l.lokacija_naziv, 
+	u.usluga_id,
+	u.usluga_naziv,
+	COUNT(u.usluga_id) AS broj_usluga_po_lokaciji
+FROM transakcije AS t
+	JOIN lokacije AS l ON l.lokacija_id = t.lokacija_id
+	JOIN usluga AS u ON u.usluga_id = t.usluga_id
+GROUP BY l.lokacija_id, u.usluga_id, l.lokacija_naziv, u.usluga_naziv
+ORDER BY broj_usluga_po_lokaciji DESC
+
+
+
+--broj usluga po lokaciji 
+GO
+CREATE PROCEDURE broj_usluga_po_lokaciji_search
+(
+	@search VARCHAR(100) = NULL
+)
+AS
+SELECT 
+	l.lokacija_id, 
+	l.lokacija_naziv, 
+	u.usluga_id,
+	u.usluga_naziv,
+	COUNT(u.usluga_id) AS broj_usluga_po_lokaciji
+FROM transakcije AS t
+	JOIN lokacije AS l ON l.lokacija_id = t.lokacija_id
+	JOIN usluga AS u ON u.usluga_id = t.usluga_id
+WHERE l.lokacija_naziv LIKE CASE WHEN @search IS NOT NULL THEN @search ELSE l.lokacija_naziv END
+GROUP BY l.lokacija_id, u.usluga_id, l.lokacija_naziv, u.usluga_naziv
+ORDER BY broj_usluga_po_lokaciji DESC
+
+EXEC broj_usluga_po_lokaciji_search 'Buenos Aires'
+EXEC broj_usluga_po_lokaciji_search
