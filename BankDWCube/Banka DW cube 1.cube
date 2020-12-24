@@ -1,0 +1,249 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dab7889c-d727-4b81-a6ca-e9286a9cd796" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Banka DW cube 1</ID>
+  <Name>Banka DW cube 1</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="93b6d71f-2e8b-4e69-9f42-9e4130f488ce">
+      <ID>Dim promet</ID>
+      <Name>Dim promet</Name>
+      <DimensionID>Dim promet</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="dbbcb26b-2bb8-4245-9e5d-d4f60d020e67">
+          <AttributeID>Transakcija Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a7f161a6-7043-41f3-9260-ab6ec899a7ee">
+          <AttributeID>Racun Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bdb31210-1aa0-4540-af67-e83db085bab9">
+          <AttributeID>Datum Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9edf3e81-a899-4900-9ed7-32ccfb1304d0">
+          <AttributeID>Lokacija Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="99fcc0c9-c25f-4ab9-8471-53b89a3e746b">
+      <ID>Racun</ID>
+      <Name>Racun</Name>
+      <DimensionID>Dim promet</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="688d5e77-bb92-46af-909b-51548dff3bdb">
+          <AttributeID>Transakcija Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="94a2d1ed-cb5f-4f20-9a6f-aebcde39f41e">
+          <AttributeID>Racun Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="56155a07-458f-4ffe-9dfe-dfcb3da8c216">
+          <AttributeID>Datum Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2103bf0c-c8d9-4cdf-9d87-7e6e891329d7">
+          <AttributeID>Lokacija Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="54164df9-e79d-43ae-a06e-c5d17be1caee">
+      <ID>Datum</ID>
+      <Name>Datum</Name>
+      <DimensionID>Dim promet</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="594189b2-183d-4c08-bd14-4d975f92d03f">
+          <AttributeID>Transakcija Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="624979d8-a440-4e2d-8b2e-6af9d3ecc681">
+          <AttributeID>Racun Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b9eaa63d-ce40-48ea-bf94-add78e65271f">
+          <AttributeID>Datum Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="39f30003-a2fb-404f-bcbf-35b92b11c46f">
+          <AttributeID>Lokacija Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c95fd3f2-3879-4270-b314-46995138a0aa">
+      <ID>Lokacija</ID>
+      <Name>Lokacija</Name>
+      <DimensionID>Dim promet</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a6aad47b-a2df-4d48-861c-b3dd68156c4e">
+          <AttributeID>Transakcija Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8e1205a0-56ad-4ba2-af8c-bece4a38d8f7">
+          <AttributeID>Racun Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="403f9321-d8dd-4533-baa5-72666eb06fff">
+          <AttributeID>Datum Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6d4bad86-b679-4be7-a3e0-5cbd6ca9ad1e">
+          <AttributeID>Lokacija Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="6385f0d3-e2e5-4303-aba3-11002fca4d34">
+      <ID>Fact Promet</ID>
+      <Name>Fact Promet</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="ed0e5388-cbd6-496e-b2f8-c5ebf59e5808">
+          <ID>Total Upotreba</ID>
+          <Name>Total Upotreba</Name>
+          <Source dwd:design-time-name="638a44ef-6e97-44ab-a0d2-c876cd4f1d8d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ad801ad7-1d6c-407e-b17d-7a6c07262b16">
+              <TableID>dbo_Fact_promet</TableID>
+              <ColumnID>Total_Upotreba</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b802369c-24b6-4a94-9940-f553a3a36c6f">
+          <ID>Dnevni</ID>
+          <Name>Dnevni</Name>
+          <Source dwd:design-time-name="954b673f-f25e-45c4-ab5b-b790f813c0b2">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="696d909b-0b87-49d9-9a0d-795e1a2130a6">
+              <TableID>dbo_Fact_promet</TableID>
+              <ColumnID>dnevni</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5e18cc1d-3734-4fdc-b938-da3e987a4e77">
+          <ID>Fact Promet Count</ID>
+          <Name>Fact Promet Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="988c50ea-d848-44c4-843e-65bc0074885c">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="afd6e48e-f985-4aa6-a0c2-c3ceb1874e26">
+              <TableID>dbo_Fact_promet</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="a07962f1-e228-47f1-aae7-c0eb0151ca82">
+          <CubeDimensionID>Dim promet</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="14edb7b1-9aef-4724-8d92-79caf5a4a004">
+              <AttributeID>Transakcija Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f9a207c9-a106-4d97-b64f-a2c37b4a7454">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="050fdcac-c92d-45f8-855d-6834dbdeb19f">
+                    <TableID>dbo_Fact_promet</TableID>
+                    <ColumnID>transakcija_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="33377009-9c3e-4a1e-8103-0efab75cddbc">
+          <CubeDimensionID>Racun</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="120fbf97-1644-44d9-88d3-b0ed3ac354f1">
+              <AttributeID>Transakcija Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5045d730-d2b9-4b40-9cdd-ea3a2ef351e9">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="599d3c76-3718-4a6a-a246-d46d720fe2e2">
+                    <TableID>dbo_Fact_promet</TableID>
+                    <ColumnID>transakcija_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="a4fccddd-b295-4287-b9b5-bb6bf3dc1923">
+          <CubeDimensionID>Datum</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9bd2b50a-f832-4c5a-832e-3b38d59605e5">
+              <AttributeID>Transakcija Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fb2e4c35-3674-4a0b-be6a-5c3057eb69ae">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fbcf2a90-f2d8-4f36-84f2-ae2ffa3ec28e">
+                    <TableID>dbo_Fact_promet</TableID>
+                    <ColumnID>transakcija_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="ab6a9f99-6c97-466a-b38b-48fa73ca02bf">
+          <CubeDimensionID>Lokacija</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="69243b3b-1adf-4b3a-8f69-61c4af979d79">
+              <AttributeID>Transakcija Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="75cf5901-967c-43b7-96a8-71cc729142e1">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8ce3f699-3610-48f9-8843-93877660d3e8">
+                    <TableID>dbo_Fact_promet</TableID>
+                    <ColumnID>transakcija_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="bfa75a68-5444-46dd-b34b-d67f2f0c1f68">
+    <DataSourceViewID>Banka DW cube 1</DataSourceViewID>
+  </Source>
+</Cube>

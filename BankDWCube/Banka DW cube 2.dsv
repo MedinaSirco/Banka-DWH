@@ -1,0 +1,138 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c4c9c669-7dc7-4eb5-b8ae-0fe87b50aaa7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Banka DW cube 2</ID>
+  <Name>Banka DW cube 2</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Banka DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Banka_x0020_DW_x0020_cube_x0020_2" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Banka_x0020_DW_x0020_cube_x0020_2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="4687ed31-1579-4a63-9920-69e32a014a55">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact_transakcije" msprop:design-time-name="11edab53-5ba6-4967-8cbe-6a9985ec2a2e" msprop:DbTableName="Fact_transakcije" msprop:FriendlyName="Fact_transakcije" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="transakcija_id" msprop:design-time-name="0f618843-9a07-419a-a108-3c09e9aa3b84" msprop:DbColumnName="transakcija_id" msprop:FriendlyName="transakcija_id" type="xs:int" />
+                  <xs:element name="lokacija_id" msprop:design-time-name="b942fd10-208e-4141-8bbe-11b3d591235b" msprop:DbColumnName="lokacija_id" msprop:FriendlyName="lokacija_id" type="xs:int" />
+                  <xs:element name="usluga_id" msprop:design-time-name="c7c51b08-736f-4535-bf7d-626f15c24fb3" msprop:DbColumnName="usluga_id" msprop:FriendlyName="usluga_id" type="xs:int" />
+                  <xs:element name="datum_id" msprop:design-time-name="8def07d9-5293-4a3d-ab7b-8792c316c508" msprop:DbColumnName="datum_id" msprop:FriendlyName="datum_id" type="xs:int" />
+                  <xs:element name="kolicina" msprop:design-time-name="1caa2bb6-d82b-4a52-be91-5a9aab3cedb1" msprop:DbColumnName="kolicina" msprop:FriendlyName="kolicina" type="xs:int" />
+                  <xs:element name="uspjesna" msprop:design-time-name="820385ba-0c7f-4cc5-9427-c139179c1ba9" msprop:DbColumnName="uspjesna" msprop:FriendlyName="uspjesna" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_usluga" msprop:design-time-name="0e27268f-748a-428c-8e8e-9dcb9b2606e2" msprop:DbTableName="Dim_usluga" msprop:FriendlyName="Dim_usluga" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="usluga_id" msprop:design-time-name="240e5e41-c425-468d-8254-f36be9cf55a4" msprop:DbColumnName="usluga_id" msprop:FriendlyName="usluga_id" type="xs:int" />
+                  <xs:element name="usluga_naziv" msprop:design-time-name="d8e361b6-9007-48ae-bd86-fbbd9fc6ef97" msprop:DbColumnName="usluga_naziv" msprop:FriendlyName="usluga_naziv" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_lokacije" msprop:design-time-name="ebe06003-4d28-43c9-ae8b-bf85de1845a0" msprop:DbTableName="Dim_lokacije" msprop:FriendlyName="Dim_lokacije" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="lokacija_id" msprop:design-time-name="b9edac80-a352-4a16-b50e-45b3730a09d6" msprop:DbColumnName="lokacija_id" msprop:FriendlyName="lokacija_id" type="xs:int" />
+                  <xs:element name="lokacija_naziv" msprop:design-time-name="7ce10b88-9bc4-4fbb-80ce-5babcad014d6" msprop:DbColumnName="lokacija_naziv" msprop:FriendlyName="lokacija_naziv" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_datum" msprop:design-time-name="4b0785cc-15ad-434c-b7df-053c1a20fadf" msprop:DbTableName="Dim_datum" msprop:FriendlyName="Dim_datum" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="datum_id" msprop:design-time-name="10783d2a-6b8c-4f76-be6a-d701db186df0" msprop:DbColumnName="datum_id" msprop:FriendlyName="datum_id" type="xs:int" />
+                  <xs:element name="datum" msprop:design-time-name="df6ba086-2d43-4dc7-89cf-b05a002f76db" msprop:DbColumnName="datum" msprop:FriendlyName="datum" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="mjesec_broj" msprop:design-time-name="5caeae41-1db1-409c-b61d-de620c3bb9c2" msprop:DbColumnName="mjesec_broj" msprop:FriendlyName="mjesec_broj" type="xs:int" minOccurs="0" />
+                  <xs:element name="godina" msprop:design-time-name="83f0a2c7-3843-4d84-ae4b-2198bd3b48cf" msprop:DbColumnName="godina" msprop:FriendlyName="godina" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact_transakcije" />
+          <xs:field xpath="transakcija_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_usluga_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_usluga" />
+          <xs:field xpath="usluga_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_lokacije_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_lokacije" />
+          <xs:field xpath="lokacija_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_datum_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_datum" />
+          <xs:field xpath="datum_id" />
+        </xs:unique>
+        <xs:keyref name="transakcije_dim_2" refer="dbo_Dim_usluga_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_transakcije" />
+          <xs:field xpath="usluga_id" />
+        </xs:keyref>
+        <xs:keyref name="transakcije_dim_1" refer="dbo_Dim_lokacije_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_transakcije" />
+          <xs:field xpath="lokacija_id" />
+        </xs:keyref>
+        <xs:keyref name="transakcije_dim_3" refer="dbo_Dim_datum_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_transakcije" />
+          <xs:field xpath="datum_id" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Banka_x0020_DW_x0020_cube_x0020_2 xmlns="" />
+  </Schema>
+</DataSourceView>

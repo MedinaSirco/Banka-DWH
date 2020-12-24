@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "BankDWCube", "BankDWCube\BankDWCube.dwproj", "{1063E41B-DE28-4F20-A9D7-F7367B1D691F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1063E41B-DE28-4F20-A9D7-F7367B1D691F}.Development|Default.ActiveCfg = Development
+		{1063E41B-DE28-4F20-A9D7-F7367B1D691F}.Development|Default.Build.0 = Development
+		{1063E41B-DE28-4F20-A9D7-F7367B1D691F}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C2DAFA7-8093-4ADD-9786-038F1AD19EDE}
+	EndGlobalSection
+EndGlobal

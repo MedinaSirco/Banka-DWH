@@ -1,0 +1,136 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b22718d5-2de2-4ca2-b26b-0ffe05272eeb" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim upotreba</ID>
+  <Name>Dim upotreba</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="085fbbeb-e86a-481d-bde7-fca57bf6c89e">
+    <DataSourceViewID>Banka DW cube 0</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="c5af0227-d3d9-4bc2-bb09-0ca1cef1adff">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="c072b6c7-3a07-4d23-a88f-1fd1198a41a3">
+      <ID>Transakcija Id</ID>
+      <Name>Transakcija Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6e1f146b-f109-427c-b97b-328d79a09c07">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b17617ee-f511-4345-85e2-ea18c25dec76">
+            <TableID>dbo_Fact_upotreba</TableID>
+            <ColumnID>transakcija_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f128bc90-c45f-4b05-b866-fde23ac45250">
+          <AttributeID>Korisnik Id</AttributeID>
+          <Name>Korisnik Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="47ae7140-581e-4faf-a905-2f8460f11e18">
+          <AttributeID>Datum Id</AttributeID>
+          <Name>Datum Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9e2c4859-969b-42cb-b261-6a98eabe4611">
+          <AttributeID>Lokacija Id</AttributeID>
+          <Name>Lokacija Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="df8f03ab-1414-4c1f-81b3-fd9acbcae4c7">
+      <ID>Korisnik Id</ID>
+      <Name>Korisnik Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="eab2bbc7-6375-44ca-8552-b2c0da3b0aed">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="67593288-f7aa-4c6c-8296-2c96753e0891">
+            <TableID>dbo_Dim_korisnik</TableID>
+            <ColumnID>korisnik_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fc938268-2084-4f9e-810b-c458d530da91">
+      <ID>Datum Id</ID>
+      <Name>Datum Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3f43c721-6924-4921-9473-52184a3c010b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5ca555b5-4981-46b7-b91b-db3d1b22caf2">
+            <TableID>dbo_Dim_datum</TableID>
+            <ColumnID>datum_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f4b5cbc3-2586-4019-b65f-3c88cbb8ab3a">
+      <ID>Lokacija Id</ID>
+      <Name>Lokacija Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="887889bd-a1a7-4e41-8a19-055f3da9701b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cfada44a-1c8f-410c-a882-7afcc3ef8be7">
+            <TableID>dbo_Dim_lokacije</TableID>
+            <ColumnID>lokacija_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
